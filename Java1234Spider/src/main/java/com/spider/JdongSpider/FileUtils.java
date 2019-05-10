@@ -37,7 +37,11 @@ public class FileUtils {
 			// 换行
 			writer.write("\r\n");
 			
-			data = "图片地址："+book.getBookPicture();
+			/*data = "图片地址："+book.getBookPicture();
+			writer.write(data);
+			writer.write("\r\n");*/
+			
+			data = "内容简介："+book.getDetailInfo();
 			writer.write(data);
 			writer.write("\r\n");
 			
@@ -45,9 +49,15 @@ public class FileUtils {
 			writer.write(data);
 			writer.write("\r\n");
 
-			data = "下载地址："+book.getDownLoadAddress();
+			data = "下载网盘地址："+book.getDownLoadUrl();
 			writer.write(data);
 			writer.write("\r\n");
+			
+			data = "密码："+book.getDownLoadPwd();
+			writer.write(data);
+			writer.write("\r\n");
+			
+			
 
 			writer.flush();
 			writer.close();

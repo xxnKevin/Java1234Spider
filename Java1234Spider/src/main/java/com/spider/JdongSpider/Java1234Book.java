@@ -15,7 +15,9 @@ public class Java1234Book {
 	private String bookDate;
 	private String bookName;
 	private String bookPicture;
-	private String downLoadAddress;
+	private String detailInfo;
+	private String downLoadUrl;
+	private String downLoadPwd;
 	private BookTag bookTag;
 	
 	public BookTag praseTag(String bookName) {
