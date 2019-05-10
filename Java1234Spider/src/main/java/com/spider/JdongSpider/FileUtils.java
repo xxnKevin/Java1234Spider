@@ -80,38 +80,32 @@ public class FileUtils {
 			file.createNewFile();
 			BufferedWriter writer = new BufferedWriter(new FileWriter(file));
 
-			String data;
+			StringBuffer data=new StringBuffer();
 			ESData esData=Java1234Parse.esData;
-			data = "一共爬倒书："+esData.getTotal()+"本";
-			// 写入文本文档
-			writer.write(data);
+			data.append("一共爬到书："+esData.getTotal()+"本");
+
 			// 换行
-			writer.write("\r\n");
-			writer.write("\r\n");
+			data.append("\r\n");
+			data.append("\r\n");
 			
-			data = " java类图书："+esData.getJavaTotal()+"本";
-			writer.write(data);
-			writer.write("\r\n");
+			data.append(" java类图书："+esData.getJavaTotal()+"本");
+			data.append("\r\n");
 			
-			data = " python类图书："+esData.getPythonTotal()+"本";
-			writer.write(data);
-			writer.write("\r\n");
+			data.append(" python类图书："+esData.getPythonTotal()+"本");
+			data.append("\r\n");
 
-			data = " web类图书："+esData.getWebTotal()+"本";
-			writer.write(data);
-			writer.write("\r\n");
+			data.append(" web类图书："+esData.getWebTotal()+"本");
+			data.append("\r\n");
 			
-			data = " 未分类图书："+esData.getOtherTotal()+"本";
-			writer.write(data);
-			writer.write("\r\n");
+			data.append("  未分类图书："+esData.getOtherTotal()+"本");
+			data.append("\r\n");
 			
-			data = "爬虫时间："+new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date());
-			writer.write(data);
-			writer.write("\r\n");
-			data = "作者："+"https://github.com/blue19demon";
-			writer.write(data);
-			writer.write("\r\n");
-
+			data.append("爬虫时间："+new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date()));
+			data.append("\r\n");
+			data.append("作者："+"https://github.com/blue19demon");
+			// 写入文本文档
+			writer.write(data.toString());
+            System.out.println(data);
 			writer.flush();
 			writer.close();
 
